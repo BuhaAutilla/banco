@@ -2,14 +2,16 @@ package com.nttdata.banco.services.implementations;
 
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.nttdata.banco.models.dao.iAccountsDAO;
 import com.nttdata.banco.services.interfaces.iAccountsService;
 import com.nttdata.banco.models.entities.Accounts;
 
+@Service
 public class AccountsService implements iAccountsService {
-
+    
     @Autowired
     private iAccountsDAO accountsDAO;
 
