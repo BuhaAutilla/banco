@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Table(name = "accounts")
 public class Accounts implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     
     @Column(name = "name", length = 50, nullable = false)
