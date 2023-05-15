@@ -43,7 +43,7 @@ Controlador REST (AccountsController)
   | (devuelve: respuesta HTTP con datos de la cuenta)
   v
 Cliente
-
+```
 
 En esta secuencia:
 
@@ -54,3 +54,12 @@ En esta secuencia:
 5. La respuesta de la operación en la base de datos se propaga de nuevo al servicio de cuentas.
 6. Luego, el servicio de cuentas devuelve los datos de la cuenta (incluyendo los teléfonos) al controlador REST.
 7. Finalmente, el controlador REST devuelve una respuesta HTTP al cliente, incluyendo los datos de la cuenta (con los teléfonos), el código de estado, y cualquier otra información requerida.
+
+# Script de creación de BD
+```
+drop table if exists accounts CASCADE;
+drop table if exists phones CASCADE;
+create table accounts (id binary(255) not null, created_at timestamp not null, email varchar(50) not null, is_active boolean not null, last_login timestamp, name varchar(50) not null, password varchar(255) not null, token binary(255) not null, updated_at timestamp, primary key (id));
+create table phones (id binary(255) not null, area_code integer not null, country_code integer not null, number varchar(50) not null, account_id binary(255), primary key (id));
+alter table phones add constraint FKn94qtbcblybh4xuljygyvvdfv foreign key (account_id) references accounts;
+```
