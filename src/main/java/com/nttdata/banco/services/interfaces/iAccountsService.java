@@ -16,5 +16,7 @@ public interface iAccountsService {
     public boolean checkIfEmailExists(String email);
 
     public Accounts save(Accounts account);
+
+    public String encryptPassword(String password);
     
 }

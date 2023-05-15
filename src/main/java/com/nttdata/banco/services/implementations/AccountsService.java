@@ -2,6 +2,7 @@ package com.nttdata.banco.services.implementations;
 
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -36,4 +37,9 @@ public class AccountsService implements iAccountsService {
         return accountsDAO.save(account);
     }
 
+    @Override
+    public String encryptPassword(String password) {
+        return new BCryptPasswordEncoder().encode(password);
+    }
+    
 }

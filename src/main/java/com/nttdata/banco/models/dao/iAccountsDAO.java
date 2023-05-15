@@ -9,6 +9,4 @@ import com.nttdata.banco.models.entities.Accounts;
 public interface iAccountsDAO extends JpaRepository<Accounts, UUID> {
     @Query("SELECT a FROM Accounts a WHERE a.email = ?1")
     Accounts findByEmail(String email);
-
-    
 }
